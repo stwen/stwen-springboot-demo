@@ -6,5 +6,4 @@ package com.example.demo.controller;
  * @date: 2020/07/30
  **/
 public class Test {
-
 }
