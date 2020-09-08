@@ -18,7 +18,7 @@ public interface ICacheManager {
     void putCache(String key, EntityCache cache);
 
     /**
-     * 存入缓存
+     * 存入缓存，设置过期时间
      *
      * @param key
      * @param datas

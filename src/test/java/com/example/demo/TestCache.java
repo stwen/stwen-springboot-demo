@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import com.example.demo.cache.CacheListener;
 import com.example.demo.cache.CacheManagerImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -25,8 +24,10 @@ public class TestCache {
         CacheManagerImpl cacheManagerImpl = new CacheManagerImpl();
         cacheManagerImpl.putCache("test", "test", 10 * 1000L);
         cacheManagerImpl.putCache("myTest", "myTest", 15 * 1000L);
-        CacheListener cacheListener = new CacheListener(cacheManagerImpl);
-        cacheListener.startListen();
+
+        //todo 已优化成：在 putCache中使用定时器线程池，定期清理过期缓存
+//        CacheListener cacheListener = new CacheListener(cacheManagerImpl);
+//        cacheListener.startListen();
         log.info("test:" + cacheManagerImpl.getCacheByKey("test").getDatas());
         log.info("myTest:" + cacheManagerImpl.getCacheByKey("myTest").getDatas());
         try {
