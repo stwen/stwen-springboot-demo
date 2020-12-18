@@ -15,7 +15,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @description: spring上下文
+ * @description: spring上下文-Io
+ * https://blog.csdn.net/a1036645146/article/details/109483928
+ *
  * @author: xianhao_gan
  * @date: 2020/10/28
  **/
@@ -146,7 +148,7 @@ public class MySpringApplicationContext {
      */
     public Object getBean(String beanName) {
 
-        //判断bean是 单例、原型
+        //判断bean是 单例或原型
         BeanDefinition beanDefinition = beanDefinitionMap.get(beanName);
         if (beanDefinition.getScope().equals("prototype")) {
             // 原型模式：每次都创建新的bean
@@ -196,8 +198,9 @@ public class MySpringApplicationContext {
 
                 // 截取，转换成类的全限定名：包.类,如：com.example.demo.spring.service.User
                 String absolutePath = f.getAbsolutePath();// E:\my-demo\stwen-springboot-demo\target\classes\com\example\demo\spring\service\User.class
-                String relativePath = absolutePath.substring(absolutePath.indexOf("com"), absolutePath.indexOf(".class"));// com\example\demo\spring\service\User
-                relativePath = relativePath.replace("\\", ".");
+                // 截取前后缀，剩余 com\example\demo\spring\service\User
+                String relativePath = absolutePath.substring(absolutePath.indexOf("com"), absolutePath.indexOf(".class"));
+                relativePath = relativePath.replace("\\", ".");// \转.
                 System.out.println(relativePath); // com.example.demo.spring.service.User
 
                 // 通过类的全限定名，加载类

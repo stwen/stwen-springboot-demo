@@ -13,7 +13,7 @@ public class BeanDefinition {
     // bean类型范围：单例、原型
     private String scope;
 
-    // 是否哦懒加载
+    // 是否懒加载
     private Boolean isLazy;
 
     public Class getBeanClass() {

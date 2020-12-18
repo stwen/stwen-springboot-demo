@@ -1,6 +1,8 @@
 package com.example.demo.spring;
 
 import com.example.demo.spring.service.UserService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @description:
@@ -12,7 +14,8 @@ public class Test {
     public static void main(String[] args) {
 
         // 加载xml配置
-        //ClassPathXmlApplicationContext
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicaiton-context.xml");
+
         // 启动spring,初始化，加载java注解配置类
 //         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
