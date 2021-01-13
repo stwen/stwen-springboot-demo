@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * @date: 2020/10/28
  **/
 @Configuration
-@ComponentScan("com.example.demo.spring.service")
+@ComponentScan("com.example.demo.spring.service")// 自定义扫描注解
 public class AppConfig {
 
 }

@@ -94,7 +94,7 @@ public class MySpringApplicationContext {
         try {
             // 1、实例化
             Class beanClass = beanDefinition.getBeanClass();
-            Object bean = beanClass.getDeclaredConstructor().newInstance();// 反射
+            Object bean = beanClass.getDeclaredConstructor().newInstance();// spring实例化对象是通过构造方法反射
 
             //2.属性填充
             Field[] declaredFields = beanClass.getDeclaredFields();
